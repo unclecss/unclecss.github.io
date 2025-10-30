@@ -1,0 +1,101 @@
+---
+title:
+comments: false
+---
+<meta charset="utf-8">
+<style>
+/*====== 重置 & 闪电容器 ======*/
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}              /* 关键：让闪电能拿到 100% 高度 */
+body{
+  background:#020408;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:"STKaiti","KaiTi",serif;
+  overflow:hidden;
+  position:relative;
+}
+.cloud{                          /* 乌云照旧 */
+  position:absolute;
+  width:200%;height:100%;
+  background: repeating-linear-gradient(
+      0deg,
+      rgba(13,26,42,.6) 0px,
+      rgba(20,35,60,.3) 40px,
+      rgba(13,26,42,.6) 80px
+  );
+  animation:scroll 12s linear infinite;
+}
+@keyframes scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+/*====== 闪电 ======*/
+.lightning{
+  position:absolute;
+  top:0;left:0;
+  width:100%;height:100%;          /* 现在能撑满屏幕 */
+  pointer-events:none;
+  opacity:0;
+}
+.bolt{
+  position:absolute;
+  width:3px;height:100%;
+  background:linear-gradient(to bottom,transparent 0%,#00ffea 20%,#00ffea 80%,transparent 100%);
+  filter:blur(1px);
+  box-shadow:0 0 10px #00ffea,0 0 20px #00ffea;
+}
+/*====== 内容卡片 ======*/
+.box{
+  position:relative;
+  z-index:10;
+  text-align:center;
+  color:#b4fffb;
+  text-shadow:0 0 6px #00ffea;
+}
+.box h1{font-size:3.5rem;letter-spacing:.15em;margin-bottom:.4em;}
+.box p{font-size:1.3rem;opacity:.85;}
+.btn{
+  margin-top:2rem;
+  padding:10px 28px;
+  border:1px solid #00ffea;
+  background:transparent;
+  color:#00ffea;
+  font-size:1rem;
+  cursor:pointer;
+  border-radius:4px;
+  transition:all .3s;
+}
+.btn:hover{background:#00ffea;color:#020408;box-shadow:0 0 15px #00ffea;}
+</style>
+
+<div class="cloud"></div>
+<div class="lightning" id="lightning"></div>
+
+<div class="box">
+  <h1>青雷閣</h1>
+  <p>雷起九霄，万法皆伏。</p>
+  <button class="btn" onclick="enter()">踏入雷域</button>
+</div>
+
+<script>
+/* ===== 随机闪电 ===== */
+const ln=document.getElementById('lightning');
+function strike(){
+  ln.innerHTML='';
+  /* 左-中-右 随机劈 */
+  for(let i=0;i<3;i++){
+    const b=document.createElement('div');
+    b.className='bolt';
+    b.style.left=(20+Math.random()*60)+'%';
+    b.style.transform='rotate('+(Math.random()*10-5)+'deg)';
+    ln.appendChild(b);
+  }
+  ln.style.opacity=1;
+  setTimeout(()=>ln.style.opacity=0,120);
+}
+setInterval(strike,2500);
+
+/* ===== 跳转 ===== */
+function enter(){
+  window.location.href='/';
+}
+</script>
