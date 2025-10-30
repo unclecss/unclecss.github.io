@@ -1,0 +1,126 @@
+<meta charset="utf-8">
+<title>青雷阁</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{
+  background:#000;
+  overflow:hidden;
+  font-family:"STKaiti","KaiTi",serif;
+}
+/* ===== 乌云层 ===== */
+.cloud{
+  position:absolute;
+  width:250%;height:120%;
+  top:-10%;left:-50%;
+  background:
+     repeating-linear-gradient(0deg,
+        rgba(9,20,34,.9) 0px,
+        rgba(18,30,50,.5) 60px,
+        rgba(9,20,34,.9) 120px
+     ),
+     repeating-linear-gradient(90deg,
+        rgba(0,0,0,.4) 0px,
+        transparent 100px,
+        rgba(0,0,0,.4) 200px
+     );
+  animation:scroll 15s linear infinite;
+}
+@keyframes scroll{
+  from{transform:translateX(0);}
+  to{transform:translateX(-50%);}
+}
+/* ===== 闪电骨架 ===== */
+.lightning{
+  position:absolute;
+  top:0;left:0;width:100%;height:100%;
+  pointer-events:none;
+}
+.bolt{
+  position:absolute;
+  width:2px;height:100%;
+  background:linear-gradient(to bottom,
+     transparent 0%,
+     #00ffea 30%,
+     #00ffea 70%,
+     transparent 100%);
+  filter:blur(1px);
+  box-shadow:0 0 10px #00ffea,0 0 20px #00ffea,0 0 40px #00ffea;
+}
+/* ===== 内容 ===== */
+.main{
+  position:relative;
+  z-index:5;
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#b4fffb;
+  text-shadow:0 0 8px #00ffea;
+}
+.main h1{font-size:3.5rem;letter-spacing:.2em;margin-bottom:.5em;}
+.main p{font-size:1.3rem;opacity:.8;}
+.enter{
+  margin-top:2rem;
+  padding:12px 32px;
+  border:1px solid #00ffea;
+  background:transparent;
+  color:#00ffea;
+  font-size:1rem;
+  cursor:pointer;
+  border-radius:4px;
+  transition:all .3s;
+}
+.enter:hover{
+  background:#00ffea;
+  color:#000;
+  box-shadow:0 0 20px #00ffea;
+}
+</style>
+
+<div class="cloud"></div>
+<div class="lightning" id="lightning"></div>
+
+<div class="main">
+  <h1>青雷閣</h1>
+  <p>雷起九霄，萬法皆伏。</p>
+  <button class="enter" onclick="enter()">踏入雷域</button>
+</div>
+
+<audio id="thunder" preload="auto">
+  <source src="https://cdn.jsdelivr.net/gh/xxxx/thunder.mp3" type="audio/mpeg">
+  <!-- 没外链可删整行audio -->
+</audio>
+
+<script>
+/* ===== 分叉闪电 ===== */
+function strike(){
+  const ln=document.getElementById('lightning');
+  ln.innerHTML='';
+  const bolts=3+Math.floor(Math.random()*3);
+  for(let i=0;i<bolts;i++){
+    const b=document.createElement('div');
+    b.className='bolt';
+    b.style.left=(15+Math.random()*70)+'%';
+    b.style.transform='rotate('+(Math.random()*16-8)+'deg)';
+    ln.appendChild(b);
+  }
+  ln.style.opacity=1;
+  setTimeout(()=>ln.style.opacity=0,150);
+
+  /* 雷鸣 */
+  const audio=document.getElementById('thunder');
+  if(audio){
+     audio.currentTime=0;
+     audio.volume=0.25;
+     audio.play();
+  }
+}
+setInterval(strike,2200);
+
+/* ===== 跳转 ===== */
+function enter(){
+  window.location.href='/';
+}
+</script>
