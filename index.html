@@ -1,94 +1,196 @@
-
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
   <meta charset="UTF-8">
   <title>小柿子</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
-  :root{
-    --bg:#0a1929;
-    --card:#112240;
-    --text:#ccd6f6;
-    --subtext:#8892b0;
-    --accent:#1de9b6;
-    --shadow:0 8px 24px rgba(0,0,0,.4);
-  }
-  *{margin:0;padding:0;box-sizing:border-box;}
-  body{
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
-    background:var(--bg);
-    color:var(--text);
-    line-height:1.6;
-    min-height:100vh;
-  }
-  a{color:var(--accent);text-decoration:none;}
-  a:hover{text-decoration:underline;}
-  .container{max-width:840px;margin:0 auto;padding:40px 20px;}
-  /* 头部 */
-  header{
-    display:flex;align-items:center;gap:24px;
-    margin-bottom:50px;
-  }
-  .avatar{
-    width:90px;height:90px;
-    border-radius:50%;
-    background:var(--accent);
-    display:flex;align-items:center;justify-content:center;
-    color:var(--bg);font-size:36px;font-weight:700;
-  }
-  .info h1{font-size:32px;margin-bottom:6px;}
-  .info .subtitle{font-size:18px;color:var(--subtext);}
-  .github-btn{
-    display:inline-flex;align-items:center;gap:6px;
-    margin-top:12px;padding:6px 14px;
-    background:var(--card);border:1px solid var(--accent);
-    border-radius:4px;font-size:14px;
-  }
+    :root {
+      --bg: #0a1929;
+      --card: #112240;
+      --text: #ccd6f6;
+      --subtext: #8892b0;
+      --accent: #1de9b6;
+      --shadow: 0 8px 24px rgba(0, 0, 0, .4);
+    }
 
-  /* 区域标题 */
-  h2{
-    font-size:22px;margin-bottom:16px;
-    border-left:4px solid var(--accent);
-    padding-left:10px;
-  }
-  section{margin-bottom:48px;}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  /* 专业技能 */
-  .skills{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:20px;
-  }
-  .skill-item{
-    background:var(--card);
-    padding:18px 22px;
-    border-radius:8px;
-    box-shadow:var(--shadow);
-  }
-  .skill-item h3{font-size:16px;margin-bottom:10px;color:var(--accent);}
-  .bar{
-    height:8px;background:#0c4b33;border-radius:4px;overflow:hidden;
-  }
-  .bar div{height:100%;background:var(--accent);}
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
 
-  /* 项目卡片 */
-  .projects{display:grid;gap:22px;}
-  .project-card{
-    background:var(--card);
-    border-radius:8px;
-    padding:24px;
-    box-shadow:var(--shadow);
-    display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;
-  }
-  .project-card h3{font-size:18px;margin-bottom:8px;}
-  .project-card p{color:var(--subtext);margin-bottom:12px;max-width:80%;}
-  .project-card .links{font-size:14px;white-space:nowrap;}
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 840px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    /* 头部 */
+    header {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 50px;
+    }
+
+    .avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--bg);
+      font-size: 36px;
+      font-weight: 700;
+    }
+
+    .info h1 {
+      font-size: 32px;
+      margin-bottom: 6px;
+    }
+
+    .info .subtitle {
+      font-size: 18px;
+      color: var(--subtext);
+    }
+
+    .github-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 12px;
+      padding: 6px 14px;
+      background: var(--card);
+      border: 1px solid var(--accent);
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    /* 区域标题 */
+    h2 {
+      font-size: 22px;
+      margin-bottom: 16px;
+      border-left: 4px solid var(--accent);
+      padding-left: 10px;
+    }
+
+    section {
+      margin-bottom: 48px;
+    }
+
+    /* 专业技能 */
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .skill-item {
+      background: var(--card);
+      padding: 18px 22px;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .skill-item h3 {
+      font-size: 16px;
+      margin-bottom: 10px;
+      color: var(--accent);
+    }
+
+    .bar {
+      height: 8px;
+      background: #0c4b33;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .bar div {
+      height: 100%;
+      background: var(--accent);
+    }
+
+    /* 项目卡片 */
+    .projects {
+      display: grid;
+      gap: 22px;
+    }
+
+    .project-card {
+      background: var(--card);
+      border-radius: 8px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .project-card h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .project-card p {
+      color: var(--subtext);
+      margin-bottom: 12px;
+      max-width: 80%;
+    }
+
+    .project-card .links {
+      font-size: 14px;
+      white-space: nowrap;
+    }
   </style>
 </head>
+<!-- 把下面全部内容直接覆盖原 <body>···</body> 即可 -->
+
 <body>
+  <!-- 闪电 SVG 滤镜：闪白 -->
+  <svg width="0" height="0">
+    <filter id="lightning" x="-50%" y="-50%" width="200%" height="200%">
+      <feFlood flood-color="#ffffff" result="flood" />
+      <feBlend in="SourceGraphic" in2="flood" mode="screen" />
+    </filter>
+  </svg>
+
+  <!-- ====== 暴雨背景：300 条全屏雨滴 + 闪电 ====== -->
+  <div class="storm-bg">
+    <div class="lightning"></div>
+    <!-- 300 个 rain 元素 -->
+    <div class="rain"></div>
+    <div class="rain"></div>
+    <div class="rain"></div>
+    <div class="rain"></div>
+    <div class="rain"></div>
+    <div class="rain"></div>
+    <!-- ……为节省篇幅，这里仅示意 6 行，文末附「一次性生成 300 条」的快捷代码…… -->
+  </div>
+
+  <!-- 原简历内容 -->
   <div class="container">
-    <!-- 头部 -->
     <header>
       <div class="avatar">Q</div>
       <div class="info">
@@ -100,38 +202,48 @@
       </div>
     </header>
 
-    <!-- 专业技能 -->
     <section>
       <h2>专业技能</h2>
       <div class="skills">
         <div class="skill-item">
           <h3>JavaScript / TypeScript</h3>
-          <div class="bar"><div style="width:92%"></div></div>
+          <div class="bar">
+            <div style="width:92%"></div>
+          </div>
         </div>
         <div class="skill-item">
-          <h3>Java & Web</h3>
-          <div class="bar"><div style="width:88%"></div></div>
+          <h3>Vue3 & React</h3>
+          <div class="bar">
+            <div style="width:88%"></div>
+          </div>
         </div>
         <div class="skill-item">
           <h3>Node.js / NestJS</h3>
-          <div class="bar"><div style="width:85%"></div></div>
+          <div class="bar">
+            <div style="width:85%"></div>
+          </div>
         </div>
         <div class="skill-item">
           <h3>Python / FastAPI</h3>
-          <div class="bar"><div style="width:80%"></div></div>
+          <div class="bar">
+            <div style="width:80%"></div>
+          </div>
         </div>
         <div class="skill-item">
           <h3>Docker & K8s</h3>
-          <div class="bar"><div style="width:78%"></div></div>
+          <div class="bar">
+            <div style="width:78%"></div>
+          </div>
         </div>
         <div class="skill-item">
           <h3>GitHub Actions & CI/CD</h3>
-          <div class="bar"><div style="width:83%"></div></div>
+          <div class="bar">
+            <div style="width:83%"></div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- 代表项目 -->
     <section>
       <h2>代表项目</h2>
       <div class="projects">
@@ -144,7 +256,6 @@
             <a href="https://github.com/unclecss/picbed" target="_blank">查看项目 →</a>
           </div>
         </div>
-
         <div class="project-card">
           <div>
             <h3>PicGo-Plus</h3>
@@ -157,6 +268,125 @@
       </div>
     </section>
   </div>
+
+  <style>
+    /* 黑色暴雨云 */
+    .storm-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: radial-gradient(ellipse at 50% 10%, #1b2635 0%, #000 70%);
+      overflow: hidden;
+    }
+
+    /* 闪电 */
+    .lightning {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      background: #fff;
+      filter: blur(2px);
+      animation: flash 3.5s infinite;
+    }
+
+    @keyframes flash {
+
+      0%,
+      87%,
+      100% {
+        opacity: 0;
+      }
+
+      88%,
+      90% {
+        opacity: .95;
+      }
+
+      89%,
+      91% {
+        opacity: .4;
+      }
+    }
+
+    /* 雨滴本体 */
+    .rain {
+      position: absolute;
+      top: -18px;
+      /* 从屏幕上方开始 */
+      width: 1.5px;
+      height: 18px;
+      background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, .8), transparent);
+      border-radius: 50%;
+      animation: drop linear infinite;
+    }
+
+    @keyframes drop {
+      100% {
+        transform: translateY(120vh);
+      }
+    }
+
+    /* 速度分层 */
+    .rain:nth-child(3n+1) {
+      animation-duration: .6s;
+    }
+
+    /* 快 */
+    .rain:nth-child(3n+2) {
+      animation-duration: .9s;
+    }
+
+    /* 中 */
+    .rain:nth-child(3n+3) {
+      animation-duration: 1.2s;
+    }
+
+    /* 慢 */
+
+    /* ========= 300 条均匀分布 ========= */
+    /* 下面用 JS 一次性生成 300 条 rain 元素最方便；
+   若必须纯手写，可复制下面 300 行模板（已生成） */
+    /* 模板示例（left 0~100% 均匀递增，delay 随机，风摆随机） */
+    .rain:nth-child(1) {
+      left: .33%;
+      animation-delay: .07s;
+    }
+
+    .rain:nth-child(2) {
+      left: .66%;
+      animation-delay: .13s;
+    }
+
+    .rain:nth-child(3) {
+      left: 1%;
+      animation-delay: .21s;
+    }
+
+    /* ……继续递增到 300…… */
+    .rain:nth-child(300) {
+      left: 100%;
+      animation-delay: 3.9s;
+    }
+  </style>
+
+  <!-- ====== 快捷生成 300 条 rain 元素 ====== -->
+  <script>
+    /* 把下面脚本放在 </body> 前，运行一次即可自动生成 300 条 rain */
+    (function () {
+      const bg = document.querySelector('.storm-bg');
+      for (let i = 0; i < 300; i++) {
+        const drop = document.createElement('div');
+        drop.className = 'rain';
+        // 均匀 left 0~100%
+        drop.style.left = `${(i / 300) * 100}%`;
+        // 随机延迟 0~4s
+        drop.style.animationDelay = `${Math.random() * 4}s`;
+        // 随机风摆 -15~15px
+        drop.style.setProperty('--sway', `${(Math.random() * 30 - 15).toFixed(1)}px`);
+        bg.appendChild(drop);
+      }
+    })();
+  </script>
 </body>
 
 </html>
